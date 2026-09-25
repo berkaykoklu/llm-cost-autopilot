@@ -1,16 +1,19 @@
 import hashlib
 import json
+import os
+from pathlib import Path
 from typing import Any
 
 import httpx
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse, Response
+from fastapi.responses import FileResponse, JSONResponse, Response
 
 from autopilot import router
 from autopilot.prices import CHEAP, EXPENSIVE, REASONING_EFFORT, cost
 from autopilot.store import Store
 
 UPSTREAM = "https://api.openai.com/v1/chat/completions"
+HERE = Path(__file__).parent
 
 
 def sha(text: str) -> str:
@@ -23,7 +26,8 @@ def error(status: int, message: str) -> JSONResponse:
 
 
 def create_app(store: Store, pipe: Any, threshold: float,
-               transport: httpx.AsyncBaseTransport | None = None) -> FastAPI:
+               transport: httpx.AsyncBaseTransport | None = None,
+               curve_path: Path = Path("data/curve.json")) -> FastAPI:
     app = FastAPI()
     client = httpx.AsyncClient(transport=transport, timeout=120)
 
@@ -85,4 +89,27 @@ def create_app(store: Store, pipe: Any, threshold: float,
                   cost=actual, baseline_cost=baseline)
         return JSONResponse(data, headers=headers)
 
+    @app.get("/")
+    def dashboard() -> FileResponse:
+        return FileResponse(HERE / "dashboard.html")
+
+    @app.get("/api/stats")
+    def stats() -> list[dict[str, Any]]:
+        return store.stats()
+
+    @app.get("/api/curve")
+    def curve() -> Response:
+        if not curve_path.exists():
+            return error(404, "No offline result yet: run python -m offline.curve")
+        return Response(curve_path.read_text(), media_type="application/json")
+
     return app
+
+
+def main_app() -> FastAPI:  # uvicorn autopilot.proxy:main_app --factory
+    return create_app(
+        Store(os.environ.get("AUTOPILOT_DB", "autopilot.db")),
+        router.load(os.environ.get("AUTOPILOT_ROUTER", "data/router.pkl")),  # fails at startup
+        float(os.environ.get("AUTOPILOT_THRESHOLD", "0.5")),
+        curve_path=Path(os.environ.get("AUTOPILOT_CURVE", "data/curve.json")),
+    )

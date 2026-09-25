@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLM Cost Autopilot</title>
+<style>
+  :root { --bg: #fafafa; --fg: #1a1a1a; --muted: #666; --line: #ddd;
+          --router: #2563eb; --rule: #d97706; --random: #999; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111; --fg: #eee; --muted: #999; --line: #333; }
+  }
+  body { margin: 0 auto; max-width: 900px; padding: 24px 16px;
+         font: 16px/1.5 system-ui, sans-serif; background: var(--bg); color: var(--fg); }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .tile { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .tile b { display: block; font-size: 22px; }
+  .muted { color: var(--muted); }
+  svg { width: 100%; height: auto; }
+  svg text { fill: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>LLM Cost Autopilot</h1>
+<h2>Live traffic</h2>
+<div class="tiles" id="tiles"></div>
+<h2>Offline result: cost vs accuracy on held-out questions</h2>
+<p class="muted" id="legend"></p>
+<svg id="curve" viewBox="0 0 600 360" role="img" aria-label="Cost versus accuracy curve"></svg>
+<div id="words"></div>
+<script>
+const $ = (id) => document.getElementById(id);
+const usd = (x) => "$" + x.toFixed(4);
+
+async function tiles() {
+  const rows = await (await fetch("/api/stats")).json();
+  const sum = (k) => rows.reduce((s, r) => s + r[k], 0);
+  const cost = sum("cost"), base = sum("baseline_cost");
+  const saved = base > 0 ? ((1 - cost / base) * 100).toFixed(1) + "%" : "–";
+  const split = rows.map((r) => `${r.route}: ${r.requests}`).join(" · ") || "no requests yet";
+  $("tiles").innerHTML = [["Actual cost", usd(cost)], ["If all went to gpt-6-sol", usd(base)],
+                          ["Saved", saved], ["Routing", split]]
+    .map(([k, v]) => `<div class="tile"><span class="muted">${k}</span><b>${v}</b></div>`).join("");
+}
+
+async function curve() {
+  const res = await fetch("/api/curve");
+  if (!res.ok) { $("legend").textContent = "No offline result yet."; return; }
+  const c = await res.json();
+  const pts = [...c.router, ...c.length_rule];
+  const maxCost = Math.max(...pts.map((p) => p.cost));
+  const lo = Math.min(...pts.map((p) => p.accuracy)), hi = Math.max(...pts.map((p) => p.accuracy));
+  const W = 600, H = 360, P = 40;
+  const x = (v) => P + (v / maxCost) * (W - 2 * P);
+  const y = (a) => H - P - ((a - lo) / (hi - lo || 1)) * (H - 2 * P);
+  const line = (ps, color, extra = "") =>
+    `<polyline fill="none" stroke="${color}" stroke-width="2" ${extra} points="${
+      ps.map((p) => `${x(p.cost)},${y(p.accuracy)}`).join(" ")}"/>`;
+  const allExpensive = c.router[0], allCheap = c.router[c.router.length - 1];
+  // random routing at fraction f has expected cost and accuracy linear in f: a straight line
+  $("curve").innerHTML =
+    `<line x1="${P}" y1="${H - P}" x2="${W - P}" y2="${H - P}" stroke="var(--line)"/>` +
+    `<line x1="${P}" y1="${P}" x2="${P}" y2="${H - P}" stroke="var(--line)"/>` +
+    line([allCheap, allExpensive], "var(--random)", 'stroke-dasharray="4 4"') +
+    line(c.length_rule, "var(--rule)") + line(c.router, "var(--router)") +
+    `<text x="${W - P}" y="${H - 10}" text-anchor="end">cost ($) →</text>` +
+    `<text x="8" y="${P - 12}">accuracy ↑ (${(lo * 100).toFixed(0)}–${(hi * 100).toFixed(0)}%)</text>`;
+  const unparsed = Object.entries(c.unparseable).map(([m, n]) => `${m}: ${n}`).join(", ");
+  $("legend").innerHTML =
+    `<span style="color:var(--router)">■ router</span> · ` +
+    `<span style="color:var(--rule)">■ length rule</span> · ` +
+    `<span style="color:var(--random)">■ random</span> · ${c.n} questions · unparseable ${unparsed}`;
+  $("words").innerHTML =
+    `<p><b>Router reads as easy:</b> ${c.top_words.easy.join(", ")}</p>` +
+    `<p><b>Router reads as hard:</b> ${c.top_words.hard.join(", ")}</p>`;
+}
+
+tiles();
+curve();
+</script>
+</body>
+</html>
