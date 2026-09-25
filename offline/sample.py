@@ -36,15 +36,19 @@ def split(rows: list[dict[str, Any]], n_train: int, seed: int) -> list[dict[str,
 def main() -> None:
     from datasets import load_dataset
 
+    # SuperGPQA, not MMLU-Pro: on MMLU-Pro both models scored 18/20, failing the same questions
+    ds = load_dataset("m-a-p/SuperGPQA", split="train")
     rows = []
-    for r in load_dataset("TIGER-Lab/MMLU-Pro", split="test"):
-        assert r["answer"] in LETTERS[: len(r["options"])], f"bad gold in {r['question_id']}"
+    for r in ds:
+        gold = r["answer_letter"]
+        assert gold in LETTERS[: len(r["options"])], f"bad gold in {r['uuid']}"
         rows.append(
             {
-                "id": str(r["question_id"]),
-                "category": r["category"],
+                "id": r["uuid"],
+                "category": r["discipline"],
+                "difficulty": r["difficulty"],
                 "prompt": format_prompt(r["question"], r["options"]),
-                "gold": r["answer"],
+                "gold": gold,
             }
         )
     out = split(stratified(rows, N_TOTAL, SEED), N_TRAIN, SEED)
