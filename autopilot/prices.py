@@ -1,6 +1,10 @@
 CHEAP = "gpt-6-luna"
 EXPENSIVE = "gpt-6-sol"
 
+# cheap answers fast; expensive thinks first. Routing decides whether thinking is worth paying for.
+# Hidden reasoning tokens are billed as output.
+REASONING_EFFORT = {CHEAP: "none", EXPENSIVE: "medium"}
+
 # $ per 1M tokens (input, output), standard tier, verified 2026-09-25 on the OpenAI pricing page
 PRICES = {
     CHEAP: (0.10, 0.50),

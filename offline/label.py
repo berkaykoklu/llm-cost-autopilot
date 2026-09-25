@@ -7,7 +7,7 @@ from typing import Any
 import httpx
 from openai import OpenAI
 
-from autopilot.prices import CHEAP, EXPENSIVE, cost
+from autopilot.prices import CHEAP, EXPENSIVE, REASONING_EFFORT, cost
 from offline.grade import extract_letter, is_correct
 from offline.jsonl import read_jsonl, write_jsonl
 
@@ -25,8 +25,7 @@ EMPTY_ANSWER: dict[str, Any] = {"text": "", "prompt_tokens": 0, "completion_toke
 
 def request_body(model: str, prompt: str) -> dict[str, Any]:
     messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": prompt}]
-    # hidden reasoning tokens are billed as output; "none" keeps cost predictable
-    return {"model": model, "messages": messages, "reasoning_effort": "none"}
+    return {"model": model, "messages": messages, "reasoning_effort": REASONING_EFFORT[model]}
 
 
 def request_line(qid: str, model: str, prompt: str) -> dict[str, Any]:
@@ -81,6 +80,7 @@ def pilot() -> None:
                 sys.exit(f"{model}: HTTP {r.status_code} {r.text}")
             answers.append(parse_output_line(
                 {"custom_id": q["id"], "response": {"status_code": 200, "body": r.json()}}))
+        write_jsonl(DATA / f"pilot_answers_{model}.jsonl", answers)
         costs = [cost(model, a["prompt_tokens"], a["completion_tokens"]) or 0.0 for a in answers]
         mean_cost[model] = sum(costs) / len(costs)
         correct = sum(is_correct(a["text"], q["gold"]) for a, q in zip(answers, sample))

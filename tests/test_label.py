@@ -21,6 +21,10 @@ def test_request_line_shape() -> None:
     assert line["body"]["messages"][-1] == {"role": "user", "content": "Q?"}
 
 
+def test_expensive_model_reasons() -> None:
+    assert request_line("q1", "gpt-6-sol", "Q?")["body"]["reasoning_effort"] == "medium"
+
+
 def test_parse_ok_line() -> None:
     body = {
         "choices": [{"message": {"content": "Answer: B"}}],
