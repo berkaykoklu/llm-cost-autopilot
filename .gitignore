@@ -3,3 +3,4 @@ docs/superpowers/
 __pycache__/
 *.db
 .env
+.superpowers/
