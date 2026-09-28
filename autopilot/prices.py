@@ -12,9 +12,12 @@ PRICES = {
 }
 
 
+import re
+
+
 def cost(model: str, prompt_tokens: int, completion_tokens: int) -> float | None:
     for name, (inp, out) in PRICES.items():
-        # dated snapshots such as gpt-6-luna-2026-09-22 share the base price
-        if model == name or model.startswith(name + "-"):
+        # dated snapshots such as gpt-6-luna-2026-09-22 share the base price; gpt-6-luna-mini does not
+        if re.fullmatch(rf"{name}(-\d{{4}}-\d{{2}}-\d{{2}})?", model):
             return (prompt_tokens * inp + completion_tokens * out) / 1_000_000
     return None

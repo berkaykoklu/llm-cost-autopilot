@@ -28,3 +28,9 @@ def test_is_correct() -> None:
     assert is_correct("Answer: B", "B")
     assert not is_correct("Answer: C", "B")
     assert not is_correct("", "B")
+
+
+@pytest.mark.parametrize("text", ["Answer: I think B", "Answer: I think so", "Answer: A or B",
+                                  "The answer: E. coli"])
+def test_hedged_prose_is_not_a_letter(text: str) -> None:
+    assert extract_letter(text) is None

@@ -39,6 +39,13 @@ class Store:
                          prompt_tokens, completion_tokens, cost, baseline_cost))
         self.db.commit()
 
+    def baseline(self, key_hash: str, body_hash: str) -> float | None:
+        """What the first, uncached answer to this request would have cost on the expensive model."""
+        row = self.db.execute(
+            "SELECT baseline_cost FROM log WHERE key_hash = ? AND body_hash = ? AND route != 'cache' "
+            "ORDER BY ts DESC LIMIT 1", (key_hash, body_hash)).fetchone()
+        return row[0] if row else None
+
     def stats(self) -> list[dict[str, Any]]:
         rows = self.db.execute(
             "SELECT route, COUNT(*), COALESCE(SUM(cost), 0), COALESCE(SUM(baseline_cost), 0) "

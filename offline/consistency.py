@@ -54,7 +54,9 @@ async def sample(client: httpx.AsyncClient, sem: asyncio.Semaphore, key: str,
 
 async def collect() -> None:
     key = os.environ["OPENAI_API_KEY"]
-    done = {(r["id"], r["k"]) for r in read_jsonl(OUT)} if OUT.exists() else set()
+    # a 400 is final (e.g. moderation refused the prompt); rate limits and outages are retried
+    done = {(r["id"], r["k"]) for r in read_jsonl(OUT) if r.get("err") in (None, 400)} \
+        if OUT.exists() else set()
     todo = [(q, k) for q in read_jsonl(DATA / "questions.jsonl") for k in range(K)
             if (q["id"], k) not in done]
     print(f"{len(done)} done, {len(todo)} to go")

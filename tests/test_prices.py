@@ -18,3 +18,8 @@ def test_dated_snapshot_is_priced() -> None:
 def test_unknown_model_is_unpriced() -> None:
     assert cost("gpt-4o", 10, 10) is None
     assert cost("gpt-6-lunar", 10, 10) is None
+
+
+def test_other_models_sharing_a_prefix_are_unpriced() -> None:
+    assert cost("gpt-6-luna-mini", 1, 1) is None
+    assert cost("gpt-6-sol-pro", 1, 1) is None

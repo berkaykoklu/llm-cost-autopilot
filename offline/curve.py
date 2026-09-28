@@ -64,7 +64,9 @@ def main() -> None:
     args = (ok[CHEAP], ok[EXPENSIVE], spend[CHEAP], spend[EXPENSIVE])
     points = sweep([router.p_cheap(pipe, q["prompt"]) for q in qs], *args)
     samples = consistency.load()
-    cheap5 = [sum(cost(CHEAP, s["pt"], s["ct"]) or 0.0 for s in samples[q["id"]]) for q in qs]
+    # the proxy asks for all 5 samples in one call (n=5), so the prompt is billed once
+    cheap5 = [cost(CHEAP, samples[q["id"]][0]["pt"], sum(s["ct"] for s in samples[q["id"]])) or 0.0
+              for q in qs]
     agree = [agreement_of_keys([s["letter"] or "" for s in samples[q["id"]]]) for q in qs]
     served_ok = [samples[q["id"]][0]["letter"] == q["gold"] for q in qs]
     escalated_cost = [c + e for c, e in zip(cheap5, spend[EXPENSIVE])]

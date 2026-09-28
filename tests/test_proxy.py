@@ -187,3 +187,36 @@ def test_escalated_cost_includes_both_calls() -> None:
     assert luna is not None and sol is not None
     assert row["cost"] == pytest.approx(luna + sol)
     assert row["baseline_cost"] == pytest.approx(cost("gpt-6-sol", 100, 200))
+
+
+def test_sampling_params_are_dropped_on_the_cascade() -> None:
+    # temperature 0 would make all 5 samples agree; reasoning Sol rejects temperature/logprobs
+    up = Upstream(cheap=SPLIT)
+    client, _ = make(up)
+    ask(client, temperature=0, top_p=0.1, logprobs=True, top_logprobs=3)
+    cheap, exp = up.calls[0]["body"], up.calls[1]["body"]
+    assert not {"temperature", "top_p"} & cheap.keys()
+    assert not {"temperature", "top_p", "logprobs", "top_logprobs"} & exp.keys()
+
+
+def test_cache_hit_reuses_the_logged_baseline() -> None:
+    client, store = make(Upstream(cheap=AGREE))
+    ask(client)
+    ask(client)
+    stats = {r["route"]: r for r in store.stats()}
+    assert stats["cache"]["baseline_cost"] == pytest.approx(stats["cheap"]["baseline_cost"])
+
+
+def test_null_n_is_accepted() -> None:
+    client, _ = make(Upstream())
+    assert ask(client, n=None).status_code == 200
+
+
+def test_zero_choices_with_zero_threshold_does_not_crash() -> None:
+    client, _ = make(Upstream(cheap=[]), threshold=0.0)
+    assert ask(client).headers["x-autopilot-route"] == "expensive"
+
+
+def test_non_json_upstream_200_returns_502() -> None:
+    client, _ = make(lambda request: httpx.Response(200, content=b"<html>portal</html>"))  # type: ignore[arg-type]
+    assert ask(client).status_code == 502

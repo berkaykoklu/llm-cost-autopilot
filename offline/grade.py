@@ -1,8 +1,8 @@
 import re
 
 # "answer" in any case, then optional "is", colons, spaces or markdown stars, then an
-# uppercase A-J not followed by a letter (so "answer is a ..." and "Answer: Both" don't match)
-_ANSWER = re.compile(r"(?i:answer)(?:\s+is)?[\s*:]*\(?([A-J])\)?(?![A-Za-z])")
+# uppercase A-J that ends the line (so "Answer: I think B" and "answer: E. coli" don't match)
+_ANSWER = re.compile(r"(?i:answer)(?:\s+is)?[\s*:]*\(?([A-J])\)?(?=[\s.*]*$)", re.MULTILINE)
 _BARE = re.compile(r"\(?([A-J])\)?\.?")
 
 
