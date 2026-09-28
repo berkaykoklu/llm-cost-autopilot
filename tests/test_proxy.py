@@ -5,7 +5,7 @@ import httpx
 import pytest
 from fastapi.testclient import TestClient
 
-from autopilot.prices import cost
+from autopilot.prices import JEV_PRICE, cost
 from autopilot.proxy import create_app
 from autopilot.store import Store
 
@@ -26,14 +26,22 @@ def completion(model: str, texts: list[str], pt: int, ct: int) -> dict[str, Any]
 class Upstream:
     """Fake OpenAI: the cheap model answers with `cheap`, the expensive one with 'Answer: B'."""
 
-    def __init__(self, cheap: list[str] = AGREE, status: int = 200, down: bool = False) -> None:
+    def __init__(self, cheap: list[str] = AGREE, status: int = 200, down: bool = False,
+                 jev: float | None = 0.9) -> None:
         self.calls: list[dict[str, Any]] = []
-        self.cheap, self.status, self.down = cheap, status, down
+        self.jev_calls: list[dict[str, Any]] = []
+        self.cheap, self.status, self.down, self.jev = cheap, status, down, jev
 
     def __call__(self, request: httpx.Request) -> httpx.Response:
         if self.down:
             raise httpx.ConnectError("down", request=request)
         body = json.loads(request.content)
+        if request.url.host == "api.typesafe.ai":
+            self.jev_calls.append({"body": body, "auth": request.headers["authorization"]})
+            if self.jev is None:
+                return httpx.Response(500, json={"error": "down"})
+            return httpx.Response(200, json={"answers": {"correct": {"type": "noul", "noul": self.jev}},
+                                             "usage": {"input_tokens": 300, "output_tokens": 20}})
         self.calls.append({"body": body, "auth": request.headers["authorization"]})
         if self.status != 200:
             return httpx.Response(self.status, json={"error": {"message": "rate limited"}})
@@ -43,9 +51,11 @@ class Upstream:
         return httpx.Response(200, json=completion(body["model"], ["Answer: B"], 100, 200))
 
 
-def make(upstream: Upstream, threshold: float = 1.0) -> tuple[TestClient, Store]:
+def make(upstream: Upstream, threshold: float = 1.0, verifier: str = "consistency"
+         ) -> tuple[TestClient, Store]:
     store = Store(":memory:")
-    app = create_app(store, threshold, transport=httpx.MockTransport(upstream))
+    app = create_app(store, threshold, transport=httpx.MockTransport(upstream),
+                     verifier=verifier, jev_key="jev-secret-key")
     return TestClient(app), store
 
 
@@ -104,7 +114,7 @@ def test_agreeing_samples_are_served_from_the_cheap_model() -> None:
     sent = up.calls[0]["body"]
     assert (sent["model"], sent["n"], sent["reasoning_effort"]) == ("gpt-6-luna", 5, "none")
     assert r.headers["x-autopilot-route"] == "cheap"
-    assert r.headers["x-autopilot-agreement"] == "1.00"
+    assert r.headers["x-autopilot-score"] == "1.00"
     assert len(r.json()["choices"]) == 1
     assert r.json()["choices"][0]["message"]["content"] == "Answer: A"
 
@@ -118,7 +128,7 @@ def test_disagreeing_samples_escalate_to_the_expensive_model() -> None:
     assert (sent["model"], sent["reasoning_effort"]) == ("gpt-6-sol", "medium")
     assert "n" not in sent
     assert r.headers["x-autopilot-route"] == "expensive"
-    assert r.headers["x-autopilot-agreement"] == "0.60"
+    assert r.headers["x-autopilot-score"] == "0.60"
     assert r.json()["choices"][0]["message"]["content"] == "Answer: B"
 
 
@@ -220,3 +230,51 @@ def test_zero_choices_with_zero_threshold_does_not_crash() -> None:
 def test_non_json_upstream_200_returns_502() -> None:
     client, _ = make(lambda request: httpx.Response(200, content=b"<html>portal</html>"))  # type: ignore[arg-type]
     assert ask(client).status_code == 502
+
+
+def test_consistency_mode_never_calls_jev() -> None:
+    up = Upstream(cheap=SPLIT)
+    client, _ = make(up)
+    assert ask(client).headers["x-autopilot-verifier"] == "consistency"
+    assert up.jev_calls == []
+
+
+def test_jev_approves_the_cheap_answer() -> None:
+    up = Upstream(cheap=["Answer: A"], jev=0.9)
+    client, store = make(up, threshold=0.8, verifier="jev")
+    r = ask(client, text="Q?")
+    assert len(up.calls) == 1
+    assert up.calls[0]["body"]["n"] == 1
+    [jev] = up.jev_calls
+    assert jev["auth"] == "Bearer jev-secret-key"
+    assert jev["body"]["state"]["answer"] == "Answer: A"
+    assert jev["body"]["state"]["conversation"] == [{"role": "user", "content": "Q?"}]
+    assert r.headers["x-autopilot-route"] == "cheap"
+    assert r.headers["x-autopilot-score"] == "0.90"
+    assert r.headers["x-autopilot-verifier"] == "jev"
+    [row] = store.stats()
+    luna = cost("gpt-6-luna", 100, 50)
+    assert luna is not None
+    assert row["cost"] == pytest.approx(luna + 300 * JEV_PRICE / 1_000_000)
+
+
+def test_jev_rejection_escalates_to_sol() -> None:
+    up = Upstream(cheap=["Answer: A"], jev=0.3)
+    client, _ = make(up, threshold=0.8, verifier="jev")
+    r = ask(client)
+    assert r.headers["x-autopilot-route"] == "expensive"
+    assert up.calls[1]["body"]["model"] == "gpt-6-sol"
+
+
+def test_jev_outage_escalates_instead_of_failing() -> None:
+    up = Upstream(cheap=["Answer: A"], jev=None)
+    client, _ = make(up, threshold=0.8, verifier="jev")
+    r = ask(client)
+    assert r.status_code == 200
+    assert r.headers["x-autopilot-route"] == "expensive"
+
+
+def test_jev_key_never_on_disk() -> None:
+    client, store = make(Upstream(cheap=["Answer: A"]), threshold=0.8, verifier="jev")
+    ask(client)
+    assert "jev-secret-key" not in "\n".join(store.db.iterdump())

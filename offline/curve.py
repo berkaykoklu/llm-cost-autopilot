@@ -3,9 +3,11 @@ from pathlib import Path
 
 from autopilot import router
 from autopilot.consistency import agreement_of_keys
-from autopilot.prices import CHEAP, EXPENSIVE, cost
+from autopilot.prices import CHEAP, EXPENSIVE, JEV_PRICE, cost
 from offline import consistency
 from offline.grade import extract_letter, is_correct
+from offline.jev_verify import OUT as JEV_SCORES
+from offline.jsonl import read_jsonl
 from offline.label import EMPTY_ANSWER
 from offline.train import ROUTER, answers, questions, top_words
 
@@ -81,6 +83,16 @@ def main() -> None:
         "top_words": top_words(pipe, 10),
         "unparseable": {m: sum(extract_letter(a["text"]) is None for a in got[m]) for m in got},
     }
+    if JEV_SCORES.exists():
+        jev = {r["id"]: r for r in read_jsonl(JEV_SCORES)}
+        jev_cost = [spend[CHEAP][i] + jev[q["id"]]["tokens"] * JEV_PRICE / 1_000_000
+                    for i, q in enumerate(qs)]
+        jev_args = (ok[CHEAP], ok[EXPENSIVE], jev_cost, [c + e for c, e in zip(jev_cost, spend[EXPENSIVE])])
+        jev_p = [jev[q["id"]]["p"] or 0.0 for q in qs]
+        jev_table = cascade_by_threshold(jev_p, *jev_args, thresholds=[0.5, 0.8, 0.9, 0.95])
+        result |= {"jev": sweep(jev_p, *jev_args), "jev_by_threshold": jev_table}
+        for row in jev_table:
+            print(f"jev {row}")
     CURVE.write_text(json.dumps(result, indent=1))
     print(f"all expensive: {points[0]}\nall cheap: {points[-1]}")
     print(f"recommended (within 2 points of all-expensive): {recommend(points)}")

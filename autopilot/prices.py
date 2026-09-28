@@ -21,3 +21,6 @@ def cost(model: str, prompt_tokens: int, completion_tokens: int) -> float | None
         if re.fullmatch(rf"{name}(-\d{{4}}-\d{{2}}-\d{{2}})?", model):
             return (prompt_tokens * inp + completion_tokens * out) / 1_000_000
     return None
+
+# TypeSafe Jev: $ per 1M input tokens, output free; verified 2026-09-28 on docs.typesafe.ai/models
+JEV_PRICE = 0.042
