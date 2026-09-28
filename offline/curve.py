@@ -49,6 +49,18 @@ def cascade_by_threshold(agree: list[float], cheap_ok: list[bool], exp_ok: list[
     return rows
 
 
+def youden_threshold(scores: list[float], ok: list[bool]) -> float:
+    """Threshold that best separates right from wrong answers (max TPR - FPR); uses labels only."""
+    pos, neg = sum(ok), len(ok) - sum(ok)
+
+    def j(t: float) -> float:
+        tp = sum(s >= t and o for s, o in zip(scores, ok))
+        fp = sum(s >= t and not o for s, o in zip(scores, ok))
+        return tp / pos - fp / neg
+
+    return min(sorted(set(scores)), key=lambda t: (-j(t), t))
+
+
 def recommend(points: list[Point], tolerance: float = 0.02) -> Point:
     best = points[0]["accuracy"] or 0.0  # k = 0: everything to the expensive model
     ok = [p for p in points if (p["accuracy"] or 0.0) >= best - tolerance]
@@ -85,12 +97,19 @@ def main() -> None:
     }
     if JEV_SCORES.exists():
         jev = {r["id"]: r for r in read_jsonl(JEV_SCORES)}
+        # choose the threshold on training questions only; the test set just reports it
+        train = questions("train")
+        train_ok = [is_correct(by_model[CHEAP].get(q["id"], EMPTY_ANSWER)["text"], q["gold"])
+                    for q in train]
+        chosen = round(youden_threshold([jev[q["id"]]["p"] or 0.0 for q in train], train_ok), 2)
         jev_cost = [spend[CHEAP][i] + jev[q["id"]]["tokens"] * JEV_PRICE / 1_000_000
                     for i, q in enumerate(qs)]
         jev_args = (ok[CHEAP], ok[EXPENSIVE], jev_cost, [c + e for c, e in zip(jev_cost, spend[EXPENSIVE])])
         jev_p = [jev[q["id"]]["p"] or 0.0 for q in qs]
-        jev_table = cascade_by_threshold(jev_p, *jev_args, thresholds=[0.5, 0.8, 0.9, 0.95])
-        result |= {"jev": sweep(jev_p, *jev_args), "jev_by_threshold": jev_table}
+        jev_table = cascade_by_threshold(jev_p, *jev_args, thresholds=[chosen, 0.5, 0.8, 0.9])
+        result |= {"jev": sweep(jev_p, *jev_args), "jev_by_threshold": jev_table,
+                   "jev_threshold_from_train": chosen}
+        print(f"jev threshold chosen on train: {chosen}")
         for row in jev_table:
             print(f"jev {row}")
     CURVE.write_text(json.dumps(result, indent=1))

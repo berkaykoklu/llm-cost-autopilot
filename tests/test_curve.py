@@ -35,3 +35,10 @@ def test_cascade_by_threshold_escalates_below_threshold() -> None:
                                 thresholds=[0.6, 1.0])
     assert rows[0] == {"threshold": 0.6, "escalated": 0.0, "accuracy": 0.5, "cost": 2.0}
     assert rows[1] == {"threshold": 1.0, "escalated": 0.5, "accuracy": 1.0, "cost": 12.0}
+
+
+def test_youden_threshold_separates_right_from_wrong() -> None:
+    from offline.curve import youden_threshold
+
+    # right answers score 0.7+, wrong ones 0.4-: any cut in (0.4, 0.7] is perfect; we take the lowest
+    assert youden_threshold([0.9, 0.7, 0.4, 0.1], [True, True, False, False]) == 0.7

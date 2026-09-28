@@ -168,9 +168,9 @@ def create_app(store: Store, threshold: float,
 
 def main_app() -> FastAPI:  # uvicorn autopilot.proxy:main_app --factory
     verifier = os.environ.get("AUTOPILOT_VERIFIER", "consistency")
-    # measured on held-out questions: consistency 1.0 (all 5 agree) 67.3% at $0.49;
-    # jev 0.5: 66.7% at $0.27. All-Sol: 70.0% at $0.77
-    default_threshold = "1.0" if verifier == "consistency" else "0.5"
+    # thresholds fixed before looking at the test set: consistency 1.0 = all 5 samples agree;
+    # jev 0.81 = Youden's J on training questions. Test: 67.3% / 68.0% vs all-Sol 70.0%
+    default_threshold = "1.0" if verifier == "consistency" else "0.81"
     return create_app(
         Store(os.environ.get("AUTOPILOT_DB", "autopilot.db")),
         float(os.environ.get("AUTOPILOT_THRESHOLD", default_threshold)),

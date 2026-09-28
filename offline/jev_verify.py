@@ -1,4 +1,4 @@
-"""Score each held-out cheap answer with Jev, using the exact request the proxy sends (resumable)."""
+"""Score each cheap answer (train and test) with Jev, using the exact request the proxy sends (resumable)."""
 
 import json
 import os
@@ -28,7 +28,7 @@ def main() -> None:
     key = os.environ["JEV_API_KEY"]
     got = answers(CHEAP)
     done = {r["id"] for r in read_jsonl(OUT)} if OUT.exists() else set()
-    todo = [q for q in questions("test") if q["id"] not in done]
+    todo = [q for q in questions("train") + questions("test") if q["id"] not in done]
     print(f"{len(done)} done, {len(todo)} to go")
     with ThreadPoolExecutor(8) as pool, OUT.open("a") as sink:
         for row in pool.map(lambda q: score(key, q, got.get(q["id"], EMPTY_ANSWER)["text"]), todo):
