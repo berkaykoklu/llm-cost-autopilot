@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 
-from autopilot.router import choose, load, p_cheap, prompt_text
+from autopilot.router import load, p_cheap
 from offline.train import fit, top_words
 
 EASY = ["what colour is the sky", "what colour is grass"]
@@ -19,11 +19,6 @@ def test_easy_scores_higher_than_hard() -> None:
     assert p_cheap(pipe, EASY[0]) > 0.5 > p_cheap(pipe, HARD[0])
 
 
-def test_choose_threshold() -> None:
-    assert choose(0.7, 0.5) == "gpt-6-luna"
-    assert choose(0.5, 0.5) == "gpt-6-luna"
-    assert choose(0.3, 0.5) == "gpt-6-sol"
-
 
 def test_top_words() -> None:
     words = top_words(toy_pipe(), 3)  # prove/about/eigenvalues tie on weight
@@ -31,18 +26,6 @@ def test_top_words() -> None:
     assert "colour" in words["easy"]
 
 
-def test_prompt_text_string_and_parts() -> None:
-    messages = [
-        {"role": "system", "content": "ignored"},
-        {"role": "user", "content": "first"},
-        {"role": "user", "content": [{"type": "text", "text": "second"}, {"type": "image_url"}]},
-    ]
-    assert prompt_text(messages) == "first\nsecond"
-
-
-def test_prompt_text_tolerates_garbage() -> None:
-    assert prompt_text(None) == ""
-    assert prompt_text([1, "x", {"role": "user"}]) == ""
 
 
 def test_load_missing_router_fails_loudly(tmp_path: Path) -> None:

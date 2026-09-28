@@ -10,7 +10,7 @@ from autopilot.store import Store
 
 def client(curve_path: Path) -> TestClient:
     transport = httpx.MockTransport(lambda r: httpx.Response(500))
-    return TestClient(create_app(Store(":memory:"), None, 0.5, transport, curve_path))
+    return TestClient(create_app(Store(":memory:"), 1.0, transport, curve_path))
 
 
 def test_dashboard_page(tmp_path: Path) -> None:
