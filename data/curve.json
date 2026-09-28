@@ -1808,6 +1808,1846 @@
    "threshold": 0.2353695609997595
   }
  ],
+ "cascade": [
+  {
+   "frac_cheap": 0.0,
+   "cost": 0.8331682,
+   "accuracy": 0.7033333333333334,
+   "threshold": null
+  },
+  {
+   "frac_cheap": 0.0033333333333333335,
+   "cost": 0.8311961999999999,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.006666666666666667,
+   "cost": 0.8295982,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.01,
+   "cost": 0.8287042,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.013333333333333334,
+   "cost": 0.8278202,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.016666666666666666,
+   "cost": 0.8265182,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.02,
+   "cost": 0.8216842,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.023333333333333334,
+   "cost": 0.8205802,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.02666666666666667,
+   "cost": 0.8193862,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.03,
+   "cost": 0.8157902,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.03333333333333333,
+   "cost": 0.8114742,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.03666666666666667,
+   "cost": 0.8074022,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.04,
+   "cost": 0.8028922,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.043333333333333335,
+   "cost": 0.8018982,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.04666666666666667,
+   "cost": 0.7945162,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.05,
+   "cost": 0.7926322,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.05333333333333334,
+   "cost": 0.7916482,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.056666666666666664,
+   "cost": 0.7907642,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.06,
+   "cost": 0.7898782,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.06333333333333334,
+   "cost": 0.7871982,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.06666666666666667,
+   "cost": 0.7865022,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.07,
+   "cost": 0.7850062,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.07333333333333333,
+   "cost": 0.7839902,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.07666666666666666,
+   "cost": 0.7828122,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.08,
+   "cost": 0.7808742,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.08333333333333333,
+   "cost": 0.7798222,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.08666666666666667,
+   "cost": 0.7791002,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.09,
+   "cost": 0.7782482,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.09333333333333334,
+   "cost": 0.7758142,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.09666666666666666,
+   "cost": 0.7743522,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.1,
+   "cost": 0.7735122,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.10333333333333333,
+   "cost": 0.7656461999999999,
+   "accuracy": 0.7066666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.10666666666666667,
+   "cost": 0.7629382,
+   "accuracy": 0.7066666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.11,
+   "cost": 0.7596762,
+   "accuracy": 0.7066666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.11333333333333333,
+   "cost": 0.7580302,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.11666666666666667,
+   "cost": 0.7555762,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.12,
+   "cost": 0.7544322,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.12333333333333334,
+   "cost": 0.7533522,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.12666666666666668,
+   "cost": 0.7492762,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.13,
+   "cost": 0.7482802,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.13333333333333333,
+   "cost": 0.7471942,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.13666666666666666,
+   "cost": 0.7440862,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.14,
+   "cost": 0.7425182,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.14333333333333334,
+   "cost": 0.7413602,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.14666666666666667,
+   "cost": 0.7385402,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.15,
+   "cost": 0.7373722,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.15333333333333332,
+   "cost": 0.7361122,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.15666666666666668,
+   "cost": 0.7345322,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.16,
+   "cost": 0.7327962,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.16333333333333333,
+   "cost": 0.7312881999999999,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.16666666666666666,
+   "cost": 0.7297342,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.17,
+   "cost": 0.7272782,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.17333333333333334,
+   "cost": 0.7257361999999999,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.17666666666666667,
+   "cost": 0.7246542,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.18,
+   "cost": 0.7234202,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.18333333333333332,
+   "cost": 0.7209422,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.18666666666666668,
+   "cost": 0.7193002,
+   "accuracy": 0.7066666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.19,
+   "cost": 0.7176622,
+   "accuracy": 0.7066666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.19333333333333333,
+   "cost": 0.7168022,
+   "accuracy": 0.7066666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.19666666666666666,
+   "cost": 0.7157981999999999,
+   "accuracy": 0.7066666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.2,
+   "cost": 0.7123682,
+   "accuracy": 0.7033333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.20333333333333334,
+   "cost": 0.7112862,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.20666666666666667,
+   "cost": 0.7100462,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.21,
+   "cost": 0.7085982,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.21333333333333335,
+   "cost": 0.7065902,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.21666666666666667,
+   "cost": 0.7038282,
+   "accuracy": 0.7,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.22,
+   "cost": 0.7020962,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.22333333333333333,
+   "cost": 0.7010162,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.22666666666666666,
+   "cost": 0.6995422,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.23,
+   "cost": 0.6978102,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.23333333333333334,
+   "cost": 0.6961742,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.23666666666666666,
+   "cost": 0.6941062,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.24,
+   "cost": 0.6930862,
+   "accuracy": 0.6966666666666667,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.24333333333333335,
+   "cost": 0.6920822,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.24666666666666667,
+   "cost": 0.6905981999999999,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.25,
+   "cost": 0.6896002,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.25333333333333335,
+   "cost": 0.6884162,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.25666666666666665,
+   "cost": 0.6874402,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.26,
+   "cost": 0.6864482,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.2633333333333333,
+   "cost": 0.6821402,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.26666666666666666,
+   "cost": 0.6807562,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.27,
+   "cost": 0.6797022,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.2733333333333333,
+   "cost": 0.6777102,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.27666666666666667,
+   "cost": 0.6768062,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.28,
+   "cost": 0.6738582,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.2833333333333333,
+   "cost": 0.6729742,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.2866666666666667,
+   "cost": 0.6717622,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.29,
+   "cost": 0.6704582,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.29333333333333333,
+   "cost": 0.6673462,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.2966666666666667,
+   "cost": 0.6660622,
+   "accuracy": 0.6933333333333334,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.3,
+   "cost": 0.6645742,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.30333333333333334,
+   "cost": 0.6637921999999999,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.30666666666666664,
+   "cost": 0.6567142,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.31,
+   "cost": 0.6557922,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.31333333333333335,
+   "cost": 0.6536822,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.31666666666666665,
+   "cost": 0.6525162,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.32,
+   "cost": 0.6497922,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.3233333333333333,
+   "cost": 0.6472182,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.32666666666666666,
+   "cost": 0.6455222,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.33,
+   "cost": 0.6436062,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.3333333333333333,
+   "cost": 0.6424062,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.33666666666666667,
+   "cost": 0.6412582,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.34,
+   "cost": 0.6397702,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.3433333333333333,
+   "cost": 0.6386182,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.3466666666666667,
+   "cost": 0.6373141999999999,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.35,
+   "cost": 0.6310242,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.35333333333333333,
+   "cost": 0.6280242,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.3566666666666667,
+   "cost": 0.6262262,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.36,
+   "cost": 0.6229742,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.36333333333333334,
+   "cost": 0.6218662,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.36666666666666664,
+   "cost": 0.6172742,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.37,
+   "cost": 0.6165042,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.37333333333333335,
+   "cost": 0.6146282,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.37666666666666665,
+   "cost": 0.6129342,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.38,
+   "cost": 0.6105162,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.38333333333333336,
+   "cost": 0.6081422,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.38666666666666666,
+   "cost": 0.6073902,
+   "accuracy": 0.69,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.39,
+   "cost": 0.6052822,
+   "accuracy": 0.6866666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.3933333333333333,
+   "cost": 0.6029522,
+   "accuracy": 0.6866666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.39666666666666667,
+   "cost": 0.6023262,
+   "accuracy": 0.6866666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.4,
+   "cost": 0.5979902,
+   "accuracy": 0.6866666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.4033333333333333,
+   "cost": 0.5970882,
+   "accuracy": 0.6866666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.4066666666666667,
+   "cost": 0.5938042,
+   "accuracy": 0.6866666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.41,
+   "cost": 0.5927822,
+   "accuracy": 0.6833333333333333,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.41333333333333333,
+   "cost": 0.5919942,
+   "accuracy": 0.6833333333333333,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.4166666666666667,
+   "cost": 0.5886102,
+   "accuracy": 0.6833333333333333,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.42,
+   "cost": 0.5850462,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.42333333333333334,
+   "cost": 0.5842102,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.4266666666666667,
+   "cost": 0.5833642,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.43,
+   "cost": 0.5822602,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.43333333333333335,
+   "cost": 0.5805662,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.43666666666666665,
+   "cost": 0.5794842,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.44,
+   "cost": 0.5783602,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.44333333333333336,
+   "cost": 0.5770802,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.44666666666666666,
+   "cost": 0.5758262,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.45,
+   "cost": 0.5745902,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.4533333333333333,
+   "cost": 0.5731702,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.45666666666666667,
+   "cost": 0.5707602,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.46,
+   "cost": 0.5691142,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.4633333333333333,
+   "cost": 0.5682622,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.4666666666666667,
+   "cost": 0.5669522,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.47,
+   "cost": 0.5651382,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.47333333333333333,
+   "cost": 0.5633542,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.4766666666666667,
+   "cost": 0.5622622,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.48,
+   "cost": 0.5596342,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.48333333333333334,
+   "cost": 0.5588042,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.4866666666666667,
+   "cost": 0.5570082,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.49,
+   "cost": 0.5559322,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.49333333333333335,
+   "cost": 0.5540742,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.49666666666666665,
+   "cost": 0.5528402,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5,
+   "cost": 0.5510082,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5033333333333333,
+   "cost": 0.5501842,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5066666666666667,
+   "cost": 0.5487662,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.51,
+   "cost": 0.5437822,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5133333333333333,
+   "cost": 0.5425042,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5166666666666667,
+   "cost": 0.5417002,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.52,
+   "cost": 0.5405162,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5233333333333333,
+   "cost": 0.5392582,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5266666666666666,
+   "cost": 0.5381362,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.53,
+   "cost": 0.5371922,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5333333333333333,
+   "cost": 0.5363782,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5366666666666666,
+   "cost": 0.5355802,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.54,
+   "cost": 0.5316502,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5433333333333333,
+   "cost": 0.5300542,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5466666666666666,
+   "cost": 0.5265542,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.55,
+   "cost": 0.5248462,
+   "accuracy": 0.68,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5533333333333333,
+   "cost": 0.5226802,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5566666666666666,
+   "cost": 0.5210142,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.56,
+   "cost": 0.5191022,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5633333333333334,
+   "cost": 0.5182602,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5666666666666667,
+   "cost": 0.5168482,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.57,
+   "cost": 0.5153382,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5733333333333334,
+   "cost": 0.5139442,
+   "accuracy": 0.6766666666666666,
+   "threshold": 1.0
+  },
+  {
+   "frac_cheap": 0.5766666666666667,
+   "cost": 0.5119242,
+   "accuracy": 0.6766666666666666,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.58,
+   "cost": 0.5006522,
+   "accuracy": 0.6733333333333333,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.5833333333333334,
+   "cost": 0.4990702,
+   "accuracy": 0.6733333333333333,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.5866666666666667,
+   "cost": 0.4982302,
+   "accuracy": 0.6766666666666666,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.59,
+   "cost": 0.4973642,
+   "accuracy": 0.6766666666666666,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.5933333333333334,
+   "cost": 0.4923762,
+   "accuracy": 0.6766666666666666,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.5966666666666667,
+   "cost": 0.48941819999999997,
+   "accuracy": 0.6766666666666666,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6,
+   "cost": 0.4874142,
+   "accuracy": 0.6766666666666666,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6033333333333334,
+   "cost": 0.4858762,
+   "accuracy": 0.6733333333333333,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6066666666666667,
+   "cost": 0.4845782,
+   "accuracy": 0.6733333333333333,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.61,
+   "cost": 0.4800322,
+   "accuracy": 0.6733333333333333,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6133333333333333,
+   "cost": 0.4705542,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6166666666666667,
+   "cost": 0.4696302,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.62,
+   "cost": 0.46194419999999997,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6233333333333333,
+   "cost": 0.4581302,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6266666666666667,
+   "cost": 0.4517042,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.63,
+   "cost": 0.4503642,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6333333333333333,
+   "cost": 0.4459862,
+   "accuracy": 0.6733333333333333,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6366666666666667,
+   "cost": 0.4444122,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.64,
+   "cost": 0.4410482,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6433333333333333,
+   "cost": 0.44018619999999997,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6466666666666666,
+   "cost": 0.4357802,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.65,
+   "cost": 0.4347182,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6533333333333333,
+   "cost": 0.4239642,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6566666666666666,
+   "cost": 0.4204922,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.66,
+   "cost": 0.4182682,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6633333333333333,
+   "cost": 0.4168422,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6666666666666666,
+   "cost": 0.4144882,
+   "accuracy": 0.67,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.67,
+   "cost": 0.4117142,
+   "accuracy": 0.6666666666666666,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6733333333333333,
+   "cost": 0.4102982,
+   "accuracy": 0.6666666666666666,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6766666666666666,
+   "cost": 0.40904419999999997,
+   "accuracy": 0.6666666666666666,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.68,
+   "cost": 0.4068422,
+   "accuracy": 0.6666666666666666,
+   "threshold": 0.8
+  },
+  {
+   "frac_cheap": 0.6833333333333333,
+   "cost": 0.4028522,
+   "accuracy": 0.6633333333333333,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.6866666666666666,
+   "cost": 0.4000342,
+   "accuracy": 0.66,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.69,
+   "cost": 0.3919362,
+   "accuracy": 0.6566666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.6933333333333334,
+   "cost": 0.38928419999999997,
+   "accuracy": 0.6566666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.6966666666666667,
+   "cost": 0.3876122,
+   "accuracy": 0.6566666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7,
+   "cost": 0.3822822,
+   "accuracy": 0.6566666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7033333333333334,
+   "cost": 0.37929419999999997,
+   "accuracy": 0.6566666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7066666666666667,
+   "cost": 0.3768222,
+   "accuracy": 0.66,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.71,
+   "cost": 0.3737042,
+   "accuracy": 0.66,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7133333333333334,
+   "cost": 0.3718282,
+   "accuracy": 0.66,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7166666666666667,
+   "cost": 0.3708002,
+   "accuracy": 0.66,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.72,
+   "cost": 0.3686202,
+   "accuracy": 0.6566666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7233333333333334,
+   "cost": 0.3675882,
+   "accuracy": 0.6533333333333333,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7266666666666667,
+   "cost": 0.3492722,
+   "accuracy": 0.6566666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.73,
+   "cost": 0.3459122,
+   "accuracy": 0.6533333333333333,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7333333333333333,
+   "cost": 0.3417442,
+   "accuracy": 0.6566666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7366666666666667,
+   "cost": 0.3397182,
+   "accuracy": 0.6533333333333333,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.74,
+   "cost": 0.3325742,
+   "accuracy": 0.65,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7433333333333333,
+   "cost": 0.3300842,
+   "accuracy": 0.65,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7466666666666667,
+   "cost": 0.32789619999999997,
+   "accuracy": 0.65,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.75,
+   "cost": 0.3265102,
+   "accuracy": 0.65,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7533333333333333,
+   "cost": 0.3223322,
+   "accuracy": 0.6466666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7566666666666667,
+   "cost": 0.3206542,
+   "accuracy": 0.6466666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.76,
+   "cost": 0.3180562,
+   "accuracy": 0.6466666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7633333333333333,
+   "cost": 0.3148382,
+   "accuracy": 0.6466666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7666666666666667,
+   "cost": 0.3136802,
+   "accuracy": 0.6466666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.77,
+   "cost": 0.3098862,
+   "accuracy": 0.6466666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7733333333333333,
+   "cost": 0.3053462,
+   "accuracy": 0.6466666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7766666666666666,
+   "cost": 0.3043082,
+   "accuracy": 0.6466666666666666,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.78,
+   "cost": 0.3030722,
+   "accuracy": 0.6433333333333333,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7833333333333333,
+   "cost": 0.3014122,
+   "accuracy": 0.64,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7866666666666666,
+   "cost": 0.2997822,
+   "accuracy": 0.6366666666666667,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.79,
+   "cost": 0.2985602,
+   "accuracy": 0.6333333333333333,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7933333333333333,
+   "cost": 0.2952642,
+   "accuracy": 0.6333333333333333,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.7966666666666666,
+   "cost": 0.2865002,
+   "accuracy": 0.63,
+   "threshold": 0.6
+  },
+  {
+   "frac_cheap": 0.8,
+   "cost": 0.2853622,
+   "accuracy": 0.6266666666666667,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8033333333333333,
+   "cost": 0.2840082,
+   "accuracy": 0.6233333333333333,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8066666666666666,
+   "cost": 0.2820342,
+   "accuracy": 0.62,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.81,
+   "cost": 0.2762262,
+   "accuracy": 0.6233333333333333,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8133333333333334,
+   "cost": 0.2732402,
+   "accuracy": 0.62,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8166666666666667,
+   "cost": 0.2707722,
+   "accuracy": 0.6166666666666667,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.82,
+   "cost": 0.2659262,
+   "accuracy": 0.6166666666666667,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8233333333333334,
+   "cost": 0.2642342,
+   "accuracy": 0.6166666666666667,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8266666666666667,
+   "cost": 0.2613222,
+   "accuracy": 0.6166666666666667,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.83,
+   "cost": 0.2597122,
+   "accuracy": 0.62,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8333333333333334,
+   "cost": 0.2566462,
+   "accuracy": 0.6233333333333333,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8366666666666667,
+   "cost": 0.2554102,
+   "accuracy": 0.62,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.84,
+   "cost": 0.2534722,
+   "accuracy": 0.6166666666666667,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8433333333333334,
+   "cost": 0.2517302,
+   "accuracy": 0.6133333333333333,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8466666666666667,
+   "cost": 0.2501042,
+   "accuracy": 0.6133333333333333,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.85,
+   "cost": 0.2449822,
+   "accuracy": 0.6133333333333333,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8533333333333334,
+   "cost": 0.2434982,
+   "accuracy": 0.6133333333333333,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8566666666666667,
+   "cost": 0.2406602,
+   "accuracy": 0.61,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.86,
+   "cost": 0.2386122,
+   "accuracy": 0.6066666666666667,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8633333333333333,
+   "cost": 0.2311342,
+   "accuracy": 0.6066666666666667,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8666666666666667,
+   "cost": 0.2295262,
+   "accuracy": 0.6033333333333334,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.87,
+   "cost": 0.2270582,
+   "accuracy": 0.6033333333333334,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8733333333333333,
+   "cost": 0.2256462,
+   "accuracy": 0.6066666666666667,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8766666666666667,
+   "cost": 0.2229382,
+   "accuracy": 0.6033333333333334,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.88,
+   "cost": 0.2169902,
+   "accuracy": 0.6033333333333334,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8833333333333333,
+   "cost": 0.2157662,
+   "accuracy": 0.6033333333333334,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8866666666666667,
+   "cost": 0.2127362,
+   "accuracy": 0.6,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.89,
+   "cost": 0.2118802,
+   "accuracy": 0.6,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8933333333333333,
+   "cost": 0.2082422,
+   "accuracy": 0.6,
+   "threshold": 0.4
+  },
+  {
+   "frac_cheap": 0.8966666666666666,
+   "cost": 0.2066722,
+   "accuracy": 0.5966666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9,
+   "cost": 0.2032602,
+   "accuracy": 0.5966666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9033333333333333,
+   "cost": 0.1994842,
+   "accuracy": 0.5966666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9066666666666666,
+   "cost": 0.1985722,
+   "accuracy": 0.5933333333333334,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.91,
+   "cost": 0.1931402,
+   "accuracy": 0.5933333333333334,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9133333333333333,
+   "cost": 0.1907362,
+   "accuracy": 0.59,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9166666666666666,
+   "cost": 0.1896022,
+   "accuracy": 0.59,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.92,
+   "cost": 0.1885102,
+   "accuracy": 0.59,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9233333333333333,
+   "cost": 0.1875282,
+   "accuracy": 0.5866666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9266666666666666,
+   "cost": 0.1853002,
+   "accuracy": 0.5866666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.93,
+   "cost": 0.1791002,
+   "accuracy": 0.5866666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9333333333333333,
+   "cost": 0.1779162,
+   "accuracy": 0.59,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9366666666666666,
+   "cost": 0.1745922,
+   "accuracy": 0.59,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.94,
+   "cost": 0.1628542,
+   "accuracy": 0.5866666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9433333333333334,
+   "cost": 0.1575762,
+   "accuracy": 0.5866666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9466666666666667,
+   "cost": 0.1551602,
+   "accuracy": 0.59,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.95,
+   "cost": 0.1460062,
+   "accuracy": 0.59,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9533333333333334,
+   "cost": 0.1392782,
+   "accuracy": 0.5866666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9566666666666667,
+   "cost": 0.1371202,
+   "accuracy": 0.5833333333333334,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.96,
+   "cost": 0.1356662,
+   "accuracy": 0.5866666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9633333333333334,
+   "cost": 0.1329082,
+   "accuracy": 0.5866666666666667,
+   "threshold": 0.2
+  },
+  {
+   "frac_cheap": 0.9666666666666667,
+   "cost": 0.1189762,
+   "accuracy": 0.5833333333333334,
+   "threshold": 0.0
+  },
+  {
+   "frac_cheap": 0.97,
+   "cost": 0.1157582,
+   "accuracy": 0.5833333333333334,
+   "threshold": 0.0
+  },
+  {
+   "frac_cheap": 0.9733333333333334,
+   "cost": 0.1126802,
+   "accuracy": 0.5833333333333334,
+   "threshold": 0.0
+  },
+  {
+   "frac_cheap": 0.9766666666666667,
+   "cost": 0.1042042,
+   "accuracy": 0.5833333333333334,
+   "threshold": 0.0
+  },
+  {
+   "frac_cheap": 0.98,
+   "cost": 0.1003482,
+   "accuracy": 0.58,
+   "threshold": 0.0
+  },
+  {
+   "frac_cheap": 0.9833333333333333,
+   "cost": 0.0935682,
+   "accuracy": 0.5766666666666667,
+   "threshold": 0.0
+  },
+  {
+   "frac_cheap": 0.9866666666666667,
+   "cost": 0.0840902,
+   "accuracy": 0.5733333333333334,
+   "threshold": 0.0
+  },
+  {
+   "frac_cheap": 0.99,
+   "cost": 0.0811402,
+   "accuracy": 0.57,
+   "threshold": 0.0
+  },
+  {
+   "frac_cheap": 0.9933333333333333,
+   "cost": 0.0781202,
+   "accuracy": 0.5666666666666667,
+   "threshold": 0.0
+  },
+  {
+   "frac_cheap": 0.9966666666666667,
+   "cost": 0.0660842,
+   "accuracy": 0.5666666666666667,
+   "threshold": 0.0
+  },
+  {
+   "frac_cheap": 1.0,
+   "cost": 0.0641782,
+   "accuracy": 0.5633333333333334,
+   "threshold": 0.0
+  }
+ ],
+ "cascade_by_threshold": [
+  {
+   "threshold": 0.2,
+   "escalated": 0.03666666666666667,
+   "accuracy": 0.5866666666666667,
+   "cost": 0.1329082
+  },
+  {
+   "threshold": 0.4,
+   "escalated": 0.10666666666666667,
+   "accuracy": 0.6,
+   "cost": 0.2082422
+  },
+  {
+   "threshold": 0.6,
+   "escalated": 0.20333333333333334,
+   "accuracy": 0.63,
+   "cost": 0.2865002
+  },
+  {
+   "threshold": 0.8,
+   "escalated": 0.32,
+   "accuracy": 0.6666666666666666,
+   "cost": 0.4068422
+  },
+  {
+   "threshold": 1.0,
+   "escalated": 0.4266666666666667,
+   "accuracy": 0.6766666666666666,
+   "cost": 0.5139442
+  }
+ ],
  "length_rule": [
   {
    "frac_cheap": 0.0,

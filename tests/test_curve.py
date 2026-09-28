@@ -25,3 +25,13 @@ def test_sweep_routes_most_confident_first() -> None:
 
 def test_recommend_picks_cheapest_within_tolerance() -> None:
     assert recommend(toy())["cost"] == pytest.approx(11.0)
+
+
+def test_cascade_by_threshold_escalates_below_threshold() -> None:
+    from offline.curve import cascade_by_threshold
+
+    # q0: all agree, cheap right; q1: 60% agree, cheap wrong, expensive right
+    rows = cascade_by_threshold([1.0, 0.6], [True, False], [True, True], [1.0, 1.0], [11.0, 11.0],
+                                thresholds=[0.6, 1.0])
+    assert rows[0] == {"threshold": 0.6, "escalated": 0.0, "accuracy": 0.5, "cost": 2.0}
+    assert rows[1] == {"threshold": 1.0, "escalated": 0.5, "accuracy": 1.0, "cost": 12.0}
