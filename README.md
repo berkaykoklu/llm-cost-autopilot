@@ -111,8 +111,8 @@ Along the way:
 
 ```
 autopilot/   proxy.py (FastAPI app) · consistency.py · jev.py · store.py (SQLite) · prices.py · dashboard.html
-offline/     sample · label (pilot + Batch API) · grade · consistency · jev_verify · train · curve · figures
-data/        questions, model answers, samples, Jev scores, curve.json (all committed)
+offline/     sample · label (pilot + Batch API) · grade · consistency · jev_verify · train · curve · figures · site_export
+data/        questions, model answers, samples, Jev scores, curve.json, site.json (the portfolio page's numbers; all committed)
 tests/       88 tests; the upstream APIs are mocked
 ```
 
