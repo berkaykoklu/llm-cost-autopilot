@@ -28,3 +28,10 @@ def test_check_rejects_a_drifted_headline() -> None:
     site["headline"]["cascade_acc"] = 0.5
     with pytest.raises(SystemExit):
         check(site)
+
+
+def test_check_rejects_a_drifted_jev_pin() -> None:
+    site = build()
+    site["fixed"]["jev"]["a"] = 0.70  # the hindsight ceiling, not the result fixed in advance
+    with pytest.raises(SystemExit):
+        check(site)

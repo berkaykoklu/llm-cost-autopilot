@@ -30,6 +30,8 @@ README = {
     "luna_cost": 0.013,
 }
 README_AUC = {"tfidf": 0.52, "agree": 0.66, "jev": 0.72}
+# The Jev cascade at its threshold fixed on the training questions (README table: 68.0% for $0.596).
+README_JEV_FIXED = {"a": 0.680, "c": 0.596}
 
 
 def auc(scores: list[float], labels: list[bool]) -> float:
@@ -144,6 +146,7 @@ def check(site: dict[str, Any]) -> None:
     h = site["headline"]
     bad = [k for k, v in README.items() if round(h[k], 3) != v]
     bad += [f"auc.{k}" for k, v in README_AUC.items() if round(h["auc"][k], 2) != v]
+    bad += [f"fixed.jev.{k}" for k, v in README_JEV_FIXED.items() if round(site["fixed"]["jev"][k], 3) != v]
     if bad:
         raise SystemExit(f"site export disagrees with the README on: {', '.join(bad)}")
 
