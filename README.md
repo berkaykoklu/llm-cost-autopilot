@@ -42,10 +42,13 @@ The first design was a router that looks at the prompt and predicts whether Luna
 | Jev: "answerable by recalling one fact?"* | prompt | 0.60 (0.54–0.67) |
 | SuperGPQA's own expert difficulty label (not available on live traffic) | dataset | 0.58 |
 | Luna's probability for its answer letter* | Luna's answer | 0.58 (0.52–0.64) |
+| Luna states its own confidence; best of 4 prompts, chosen on the training questions* | Luna's answer | 0.60 (0.54–0.67) |
 | Self-consistency of 5 samples | Luna's answer | 0.66 (0.60–0.72) |
 | Jev: "is this answer correct?" (the proxy's exact request) | Luna's answer | 0.72 (0.66–0.78) |
 
 \*Exploratory runs; their scripts are not part of this repo.
+
+Asking Luna how sure it is was the weakest of the answer-based signals. It claims 90 or more on most answers, and the prompt that scored best on the training questions (AUC 0.66) fell back to 0.60 on the test set. Its behaviour is a better guide than what it says about itself.
 
 Whether a question is hard *for this model* is not written in the question. The model's own behaviour carries it. This matches FrugalGPT ([Chen et al., 2023](https://arxiv.org/abs/2305.05176)) and AutoMix ([Madaan et al., 2023](https://arxiv.org/abs/2310.12963)).
 
@@ -100,7 +103,8 @@ Along the way:
 
 ## Limits
 
-- **Confident mistakes pass.** In the smoke test, Luna gave the same wrong letter 5 times out of 5 and Jev rated it correct at 0.95. Neither signal catches a model that is consistently wrong.
+- **Confident mistakes pass.** Of the 131 test questions where Luna's served answer was wrong, all 5 samples agreed on that wrong answer in 56, so self-consistency let them through. Jev rated 32 of Luna's 133 wrong answers above its threshold. Neither signal catches a model that is consistently wrong.
+- **The dataset has flaws.** 12 of the 300 test questions list the same option text twice, so one correct answer can be graded wrong.
 - **Self-consistency needs comparable answers.** It compares the extracted letter, or the last line of the answer. Free-form prose rarely matches exactly, so most of it escalates and the cascade costs more than it saves. Jev doesn't have this limit, but it was only measured on multiple choice here.
 - **One dataset, 300 test questions.** The confidence intervals are wide, and those of Jev and self-consistency overlap, so this data does not show that one is better.
 - **The dashboard's savings are an estimate.** "What all-Sol would have cost" reuses Luna's token counts. Sol reasons, so it would really use more, which makes the displayed saving conservative.
